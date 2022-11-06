@@ -1,19 +1,32 @@
-#include "Q92.hpp"
+#include "Q1.hpp"
 
 int main()
 {
-        Names names[MAXSIZE];
-        int numRecords, cnt;
+        string filename;
+        int lnum, wnum;
+        char mfu;
 
-        numRecords = makeRecord(names);
-        cout << "Total " << numRecords << " records have been made\n";
+        filename = "textfile0.dat";
+        lnum = getNumLines(filename);
+        cout << "The number of lines: " << lnum << endl;
+        lnum = getNumWords(filename);
+        cout << "The number of words: " << lnum << endl;
+        mfu = getMFU(filename);
+        cout << "The most frequently used character: " << mfu << endl;
 
-        cnt = printRecord(names, numRecords, "CA");
-        cout << "Total " << cnt << " records are printed \n";
+        filename = "textfile1.dat";
+        lnum = getNumLines(filename);
+        cout << "The number of lines: " << lnum << endl;
+        lnum = getNumWords(filename);
+        cout << "The number of words: " << lnum << endl;
+        mfu = getMFU(filename);
+        cout << "The most frequently used character: " << mfu << endl;
 
-        cnt = findNames(names, numRecords, "NY", 2018);
-        cout << "Total " << cnt << " records are found\n";
-
-        cnt = findNames(names, numRecords, "CA", 2011);
-        cout << "Total " << cnt << " records are found\n";
+        filename = "textfile2.dat";
+        lnum = getNumLines(filename);
+        cout << "The number of lines: " << lnum << endl;
+        lnum = getNumWords(filename);
+        cout << "The number of words: " << lnum << endl;
+        mfu = getMFU(filename);
+        cout << "The most frequently used character: " << mfu << endl;
 }

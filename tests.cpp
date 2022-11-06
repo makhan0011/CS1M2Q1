@@ -2,32 +2,54 @@
 #define CATCH_CONFIG_MAIN // defines main() automatically
 #include <iostream>
 #include "catch.hpp"
-#include "Q92.hpp"
+#include "Q1.hpp"
 
 TEST_CASE("Ex1 makeRecord() ", "[example]")
 {
-	Names names[MAXSIZE];
-	int numRecords, cnt;
+	string filename;
+	int lnum, wnum;
+	char mfu;
 
-	numRecords = makeRecord(names);
-	cout << "Total " << numRecords << " records have been made\n";
-	INFO("The number of Records should be 4080");
-	REQUIRE(numRecords == 4080);
+	filename = "textfile0.dat";
+	lnum = getNumLines(filename);
+	cout << "The number of lines: " << lnum << endl;
+	wnum = getNumWords(filename);
+	cout << "The number of words: " << wnum << endl;
+	mfu = getMFU(filename);
+	cout << "The most frequently used character: " << mfu << endl;
 
-	cnt = printRecord(names, numRecords, "CA");
-	cout << "Total " << cnt << " records are printed \n";
-	INFO("The number of Records should be 80");
-	REQUIRE(cnt == 80);
+	INFO("The number of lines should be 1");
+	REQUIRE(lnum == 1);
+	INFO("The number of words should be 7");
+	REQUIRE(wnum == 7);
+	INFO("The MFU should b  z");
+	REQUIRE(mfu == 'z');
 
-	cnt = findNames(names, numRecords, "NY", 2018);
-	cout << "Total " << cnt << " records are found\n";
+	filename = "textfile1.dat";
+	lnum = getNumLines(filename);
+	cout << "The number of lines: " << lnum << endl;
+	wnum = getNumWords(filename);
+	cout << "The number of words: " << wnum << endl;
+	mfu = getMFU(filename);
+	cout << "The most frequently used character: " << mfu << endl;
+	INFO("The number of lines should be 11");
+	REQUIRE(lnum == 11);
+	INFO("The number of words should be 980");
+	REQUIRE(wnum == 980);
+	INFO("The MFU should b  o");
+	REQUIRE(mfu == 'o');
 
-	INFO("The number of Records in NY 2018 should be 10");
-	REQUIRE(cnt == 10);
-
-	cnt = findNames(names, numRecords, "CA", 2011);
-	cout << "Total " << cnt << " records are found\n";
-
-	INFO("The number of Records in NY 2018 should be 10");
-	REQUIRE(cnt == 10);
+	filename = "textfile2.dat";
+	lnum = getNumLines(filename);
+	cout << "The number of lines: " << lnum << endl;
+	wnum = getNumWords(filename);
+	cout << "The number of words: " << wnum << endl;
+	mfu = getMFU(filename);
+	cout << "The most frequently used character: " << mfu << endl;
+	INFO("The number of lines should be 5");
+	REQUIRE(lnum == 5);
+	INFO("The number of words should be 566");
+	REQUIRE(wnum == 566);
+	INFO("The MFU should b  e");
+	REQUIRE(mfu == 'e');
 }
