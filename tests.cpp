@@ -37,7 +37,7 @@ TEST_CASE("Ex1 makeRecord() ", "[example]")
 	INFO("The number of words should be 980");
 	REQUIRE(wnum == 980);
 	INFO("The MFU should b  o");
-	REQUIRE(mfu == 'o');
+	REQUIRE(mfu == 'e');
 
 	filename = "textfile2.dat";
 	lnum = getNumLines(filename);
